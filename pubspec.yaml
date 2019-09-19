@@ -1,0 +1,100 @@
+name: milestone_educom
+description: An educational app
+version: 1.1.2+8
+
+environment:
+  sdk: ">=2.2.2 <3.0.0"
+
+dependency_overrides:
+  flutter:
+    sdk: flutter
+  provider: ^2.0.1+1
+  cupertino_icons: ^0.1.2
+  flutter_vector_icons: ^0.1.0
+  shared_preferences: ^0.5.2
+  xs_progress_hud: ^1.0.2
+  connectivity: any
+  image_picker: ^0.6.0+1
+  image_cropper: ^1.0.2
+  intl: ^0.15.8
+  dio: ^2.1.13
+  permission_handler: ^3.0.2
+  screen: ^0.0.5
+  cached_network_image: ^0.8.0
+  chewie: ^0.9.7
+  imei_plugin: ^1.1.0
+  url_launcher: ^5.0.3
+  share: ^0.6.1+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/man.png
+    - assets/images/woman.png
+    - assets/images/icon.png
+
+  fonts:
+    - family: TitilliumWeb-Black
+      fonts:
+        - asset: assets/fonts/TitilliumWeb-Black.ttf
+
+    - family: TitilliumWeb-Bold
+      fonts:
+        - asset: assets/fonts/TitilliumWeb-Bold.ttf
+
+    - family: TitilliumWeb-BoldItalic
+      fonts:
+        - asset: assets/fonts/TitilliumWeb-BoldItalic.ttf
+
+    - family: TitilliumWeb-ExtraLight
+      fonts:
+        - asset: assets/fonts/TitilliumWeb-ExtraLight.ttf
+
+    - family: TitilliumWeb-ExtraLightItalic
+      fonts:
+        - asset: assets/fonts/TitilliumWeb-ExtraLightItalic.ttf
+
+    - family: TitilliumWeb-Italic
+      fonts:
+        - asset: assets/fonts/TitilliumWeb-Italic.ttf
+
+    - family: TitilliumWeb-Light
+      fonts:
+        - asset: assets/fonts/TitilliumWeb-Light.ttf
+
+    - family: TitilliumWeb-LightItalic
+      fonts:
+        - asset: assets/fonts/TitilliumWeb-LightItalic.ttf
+
+    - family: TitilliumWeb-Regular
+      fonts:
+        - asset: assets/fonts/TitilliumWeb-Regular.ttf
+
+    - family: TitilliumWeb-SemiBold
+      fonts:
+        - asset: assets/fonts/TitilliumWeb-SemiBold.ttf
+
+    - family: TitilliumWeb-SemiBoldItalic
+      fonts:
+        - asset: assets/fonts/TitilliumWeb-SemiBoldItalic.ttf
+
+    - family: Digital7-Italic
+      fonts:
+        - asset: assets/fonts/Digital7-Italic.ttf
+
+    - family: Digital7-Mono
+      fonts:
+        - asset: assets/fonts/Digital7-Mono.ttf
+
+    - family: Digital7-MonoItalic
+      fonts:
+        - asset: assets/fonts/Digital7-MonoItalic.ttf
+
+    - family: Digital7
+      fonts:
+        - asset: assets/fonts/Digital7.ttf
