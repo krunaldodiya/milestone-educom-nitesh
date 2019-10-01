@@ -120,17 +120,17 @@ class _TopicDetailPage extends State<TopicDetailPage> {
                 final file = File("${directory.path}/cache");
                 final exists = file.existsSync();
 
+                final permissions = PermissionHandler();
+
+                final PermissionStatus permissionGranted = await permissions
+                    .checkPermissionStatus(PermissionGroup.storage);
+
+                if (permissionGranted != PermissionStatus.granted) {
+                  await permissions
+                      .requestPermissions([PermissionGroup.storage]);
+                }
+
                 if (!exists) {
-                  final permissions = PermissionHandler();
-
-                  final PermissionStatus permissionGranted = await permissions
-                      .checkPermissionStatus(PermissionGroup.storage);
-
-                  if (permissionGranted != PermissionStatus.granted) {
-                    await permissions
-                        .requestPermissions([PermissionGroup.storage]);
-                  }
-
                   file.createSync(recursive: true);
                 }
 
