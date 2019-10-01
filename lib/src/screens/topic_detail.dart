@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:milestone_educom/src/atp/default.dart';
 import 'package:milestone_educom/src/helpers/vars.dart';
@@ -8,6 +11,7 @@ import 'package:milestone_educom/src/providers/theme.dart';
 import 'package:milestone_educom/src/providers/user.dart';
 import 'package:milestone_educom/src/screens/helpers/confirm.dart';
 import 'package:milestone_educom/src/screens/video_list.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -109,7 +113,30 @@ class _TopicDetailPage extends State<TopicDetailPage> {
 
               try {
                 String url = getSubscriptionUrl(video);
-                await launch("mplayer://play/url?$url");
+                List<int> bytes = utf8.encode(url);
+                String base64Str = base64.encode(bytes);
+
+                final directory = Directory("/storage/emulated/0/mplayer");
+                final file = File("${directory.path}/cache");
+                final exists = file.existsSync();
+
+                if (!exists) {
+                  final permissions = PermissionHandler();
+
+                  final PermissionStatus permissionGranted = await permissions
+                      .checkPermissionStatus(PermissionGroup.storage);
+
+                  if (permissionGranted != PermissionStatus.granted) {
+                    await permissions
+                        .requestPermissions([PermissionGroup.storage]);
+                  }
+
+                  file.createSync(recursive: true);
+                }
+
+                file.writeAsString(base64Str).then((data) {
+                  launch("mplayer://play/url?$url");
+                });
               } catch (e) {
                 showConfirmationPopup(
                   context,
