@@ -6,7 +6,7 @@ String appId =
     "https://play.google.com/store/apps/details?id=com.milestone.org";
 
 String mPlayerId =
-    "https://play.google.com/store/apps/details?id=player.milestoneeducom.com";
+    "https://play.google.com/store/apps/details?id=player.milestoneeducom";
 
 String shareText =
     "$appName app is helping me learning Maths. You might like it too! Download app at: $appId";
