@@ -134,9 +134,9 @@ class _TopicDetailPage extends State<TopicDetailPage> {
                   file.createSync(recursive: true);
                 }
 
-                file.writeAsString(base64Str).then((data) {
-                  launch("mplayer://play/url?$url");
-                });
+                await file.writeAsString(base64Str);
+
+                await launch("mplayer://play/url?$url");
               } catch (e) {
                 showConfirmationPopup(
                   context,
