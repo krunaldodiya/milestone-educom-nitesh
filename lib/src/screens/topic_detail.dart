@@ -113,7 +113,7 @@ class _TopicDetailPage extends State<TopicDetailPage> {
 
               try {
                 String url = getSubscriptionUrl(video);
-                List<int> bytes = utf8.encode(url);
+                List<int> bytes = utf8.encode("$baseUrl/play?url=$url");
                 String base64Str = base64.encode(bytes);
 
                 final directory = Directory("/storage/emulated/0/mplayer");
