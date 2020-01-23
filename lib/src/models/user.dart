@@ -1,3 +1,4 @@
+import 'package:milestone_educom/src/models/institute.dart';
 import 'package:milestone_educom/src/models/setting.dart';
 import 'package:milestone_educom/src/models/subscription.dart';
 import 'package:meta/meta.dart';
@@ -17,6 +18,7 @@ class User {
   final int status;
   final List<Subscription> subscriptions;
   final Setting setting;
+  final Institute institute;
 
   User({
     this.id,
@@ -32,6 +34,7 @@ class User {
     this.status,
     this.subscriptions,
     this.setting,
+    this.institute,
   });
 
   User copyWith(Map<String, dynamic> json) {
@@ -49,6 +52,7 @@ class User {
       status: json["status"] ?? this.status,
       subscriptions: json["subscriptions"] ?? this.subscriptions,
       setting: json["site_settings"] ?? this.setting,
+      institute: json["institute"] ?? this.institute,
     );
   }
 
@@ -69,7 +73,10 @@ class User {
         status = json["status"],
         setting = json["site_settings"] is Setting
             ? json["site_settings"]
-            : Setting.fromMap(json["site_settings"]);
+            : Setting.fromMap(json["site_settings"]),
+        institute = json["institute"] is Institute
+            ? json["institute"]
+            : Institute.fromMap(json["institute"]);
 
   static fromList(List users) {
     List<User> list = List<User>();

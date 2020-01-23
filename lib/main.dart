@@ -11,6 +11,7 @@ import 'package:screen/screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   Screen.keepOn(true);
 
   String imei = await ImeiPlugin.getImei;

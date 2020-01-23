@@ -7,6 +7,7 @@ import 'package:milestone_educom/src/providers/theme.dart';
 import 'package:milestone_educom/src/providers/user.dart';
 import 'package:milestone_educom/src/screens/category_detail.dart';
 import 'package:milestone_educom/src/screens/drawer.dart';
+import 'package:milestone_educom/src/screens/helpers/institute.dart';
 import 'package:milestone_educom/src/screens/users/view_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -52,7 +53,7 @@ class _HomePage extends State<HomePage> with SingleTickerProviderStateMixin {
           ),
         ),
         title: Text(
-          appName,
+          getInstituteName(userBloc.user.institute),
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.white,

@@ -146,58 +146,59 @@ class _CategoryDetailPage extends State<CategoryDetailPage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.only(left: 10.0),
-                child: Text(
-                  "Subscription",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.normal,
-                    fontFamily: "TitilliumWeb-SemiBold",
+          if (int.parse(userBloc.user.setting.trialDays) > 0)
+            Row(
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(left: 10.0),
+                  child: Text(
+                    "Subscription",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.normal,
+                      fontFamily: "TitilliumWeb-SemiBold",
+                    ),
                   ),
                 ),
-              ),
-              Expanded(child: Container()),
-              Container(
-                margin: EdgeInsets.only(right: 10.0),
-                child: subscription == null
-                    ? RaisedButton(
-                        padding: EdgeInsets.symmetric(
-                          vertical: 0.0,
-                          horizontal: 10.0,
-                        ),
-                        color: Colors.red,
-                        child: Text(
-                          "subscribe".toUpperCase(),
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 12.0,
+                Expanded(child: Container()),
+                Container(
+                  margin: EdgeInsets.only(right: 10.0),
+                  child: subscription == null
+                      ? RaisedButton(
+                          padding: EdgeInsets.symmetric(
+                            vertical: 0.0,
+                            horizontal: 10.0,
+                          ),
+                          color: Colors.red,
+                          child: Text(
+                            "subscribe".toUpperCase(),
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12.0,
+                            ),
+                          ),
+                          onPressed: () {
+                            createSubscription(userBloc, widget.category.id);
+                          },
+                        )
+                      : Container(
+                          margin: EdgeInsets.only(right: 10.0, bottom: 10.0),
+                          child: Text(
+                            subscription.status,
+                            style: TextStyle(
+                              color: subscription.status == 'Active'
+                                  ? Colors.green
+                                  : Colors.red,
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.normal,
+                              fontFamily: "TitilliumWeb-SemiBold",
+                            ),
                           ),
                         ),
-                        onPressed: () {
-                          createSubscription(userBloc, widget.category.id);
-                        },
-                      )
-                    : Container(
-                        margin: EdgeInsets.only(right: 10.0, bottom: 10.0),
-                        child: Text(
-                          subscription.status,
-                          style: TextStyle(
-                            color: subscription.status == 'Active'
-                                ? Colors.green
-                                : Colors.red,
-                            fontSize: 18.0,
-                            fontWeight: FontWeight.normal,
-                            fontFamily: "TitilliumWeb-SemiBold",
-                          ),
-                        ),
-                      ),
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
           if (subscription != null)
             Row(
               children: <Widget>[

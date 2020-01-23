@@ -20,7 +20,7 @@ dependency_overrides:
   dio: ^2.1.13
   permission_handler: ^3.0.2
   screen: ^0.0.5
-  cached_network_image: ^0.8.0
+  cached_network_image: 2.0.0-rc
   chewie: ^0.9.7
   imei_plugin: ^1.1.0
   url_launcher: ^5.0.3

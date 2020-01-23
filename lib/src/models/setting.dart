@@ -8,6 +8,7 @@ class Setting {
   final String videoUrl;
   final String subscriptionExpireUrl;
   final String noSubscriptionUrl;
+  final String trialDays;
   final String youtubeChannel;
   final String facebookPage;
   final String watermarkColor;
@@ -20,6 +21,7 @@ class Setting {
     this.videoUrl,
     this.subscriptionExpireUrl,
     this.noSubscriptionUrl,
+    this.trialDays,
     this.youtubeChannel,
     this.facebookPage,
     this.watermarkColor,
@@ -35,6 +37,7 @@ class Setting {
       subscriptionExpireUrl:
           json["expire_subscription_url"] ?? this.subscriptionExpireUrl,
       noSubscriptionUrl: json["no_subscription_url"] ?? this.noSubscriptionUrl,
+      trialDays: json["trial_days"] ?? this.trialDays,
       youtubeChannel: json["youtube_channel"] ?? this.youtubeChannel,
       facebookPage: json["facebook_page"] ?? this.facebookPage,
       watermarkColor: json["watermark_color"] ?? this.watermarkColor,
@@ -50,6 +53,7 @@ class Setting {
         subscriptionExpireUrl =
             json != null ? json["expire_subscription_url"] : null,
         noSubscriptionUrl = json != null ? json["no_subscription_url"] : null,
+        trialDays = json != null ? json["trial_days"] : null,
         youtubeChannel = json != null ? json["youtube_channel"] : null,
         facebookPage = json != null ? json["facebook"] : null,
         watermarkColor = json != null ? json["watermark_color"] : null,

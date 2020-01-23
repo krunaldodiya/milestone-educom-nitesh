@@ -8,6 +8,7 @@ import 'package:milestone_educom/src/routes/list.dart' as routeList;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:milestone_educom/src/screens/helpers/institute.dart';
 import 'package:share/share.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -80,7 +81,7 @@ class _DrawerPageState extends State<DrawerPage> {
           ),
           ListTile(
             title: Text(
-              appName,
+              getInstituteName(userBloc.user.institute),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 16.0,

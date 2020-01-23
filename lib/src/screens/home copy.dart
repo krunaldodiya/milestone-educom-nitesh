@@ -121,10 +121,11 @@ class _HomePage extends State<HomePage> with SingleTickerProviderStateMixin {
     }
 
     return Container(
-      padding: EdgeInsets.all(20.0),
+      padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
       child: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
+          childAspectRatio: 1,
         ),
         itemCount: categoryBloc.categories.length,
         itemBuilder: (context, int index) {
@@ -161,24 +162,25 @@ class _HomePage extends State<HomePage> with SingleTickerProviderStateMixin {
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Container(
                         child: Text(
                           category.name,
                           style: TextStyle(
                             color: Colors.white,
-                            fontSize: 22.0,
+                            fontSize: 24.0,
                             fontFamily: "TitilliumWeb-SemiBold",
                           ),
                         ),
                       ),
-                      Container(margin: EdgeInsets.only(top: 10.0)),
+                      Container(margin: EdgeInsets.only(top: 20.0)),
                       Container(
                         child: Text(
                           "${category.chapters.length} Chapters".toUpperCase(),
                           style: TextStyle(
                             color: Colors.yellow,
-                            fontSize: 14.0,
+                            fontSize: 18.0,
                             fontFamily: "TitilliumWeb-SemiBold",
                           ),
                         ),
