@@ -18,7 +18,7 @@ dependency_overrides:
   image_cropper: ^1.0.2
   intl: ^0.15.8
   dio: ^2.1.13
-  permission_handler: ^3.0.2
+  permission_handler: ^4.2.0+hotfix.3
   screen: ^0.0.5
   cached_network_image: 2.0.0-rc
   chewie: ^0.9.7
