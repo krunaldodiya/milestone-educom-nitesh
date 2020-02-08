@@ -65,11 +65,9 @@ class OtpBloc extends ChangeNotifier {
   verifyOtp(UserBloc userBloc) async {
     setState(loading: true, loaded: false);
 
-    String imei = await ImeiPlugin.getImei;
-
     try {
       final Response response = await _apiProvider.verifyOtp(
-        imei,
+        userBloc.imei,
         mobile,
         clientOtp,
       );

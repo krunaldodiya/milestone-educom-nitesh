@@ -14,7 +14,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Screen.keepOn(true);
 
-  String imei = await ImeiPlugin.getImei;
+  String imei =
+      await ImeiPlugin.getImei(shouldShowRequestPermissionRationale: false);
+
   SharedPreferences prefs = await SharedPreferences.getInstance();
 
   String authToken = prefs.getString("authToken");
