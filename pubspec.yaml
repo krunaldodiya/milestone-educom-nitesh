@@ -1,6 +1,6 @@
 name: milestone_educom
 description: An educational app
-version: 1.1.7+22
+version: 1.1.7+23
 
 environment:
   sdk: ">=2.2.2 <3.0.0"
